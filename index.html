@@ -280,42 +280,55 @@ button:hover{
 
 <script>
 const wishes = [
-  "🔮 Quẻ Thứ Nhất: Năm nay tiền vào cửa trước, ra cửa sau… nhưng cửa sau mở to hơn 😌",
-  "🐉 Quẻ Rồng Lộn: Sự nghiệp bay cao… nhưng nhớ coi chừng đụng trần 😏",
-  "💘 Quẻ Tình Duyên: Có người để ý bạn… nhưng họ đang để ý 3 người khác nữa 🤡",
-  "💸 Quẻ Tài Lộc: Có lộc nhỏ nhỏ… đủ mua trà sữa size M không topping 🥲",
-  "🔥 Quẻ Vận Đỏ: Đỏ cả năm… nhất là đỏ thông báo “trừ tiền thành công” 💀",
-  "🧠 Quẻ Trí Tuệ: Bạn sẽ thông minh hơn… sau khi ngu thêm vài lần 🤣",
-  "🏃 Quẻ Nỗ Lực: Cố gắng sẽ thành công… còn không cố thì thành người từng cố 😌",
-  "🎯 Quẻ Mục Tiêu: Đặt mục tiêu cao một chút… để khi không đạt còn có lý do 😏",
-  "🪞 Quẻ Sự Thật: Người bạn cần thay đổi nhất… đang nhìn bạn trong gương 🫠",
-  "🎲 Quẻ Hên Xui: 50% may mắn, 50% do bạn… mà bạn thì hên xui lắm 😆",
-  "💍 Quẻ Cưới Hỏi: Có cưới… nhưng cưới ai thì trời chưa cập nhật 🤭",
-  "📉 Quẻ Tài Chính: Ví mỏng đi để bạn nhẹ lòng hơn 😌",
-  "🌪 Quẻ Drama: Không tìm drama… drama tự tìm bạn 😭",
-  "🚀 Quẻ Bứt Phá: Bứt thì có bứt… phá thì chắc chắn phá 🤡",
-  "🍀 Quẻ An Ủi: Không giàu cũng không sao… miễn là còn sống 😌"
+  "🧧 Quẻ Khai Xuân: Năm nay tiền vào cửa trước, ra cửa sau… nhưng cửa sau là đi mua quà Tết cho gia đình nên thôi cũng đáng 😌 Lộc không ào ào nhưng đều đều như lì xì mùng 1, đủ vui cả năm.",
+  
+  "🐉 Quẻ Rồng Bay Ngày Tết: Sự nghiệp năm nay bay cao như pháo hoa giao thừa… chỉ cần nhớ cúi đầu khi qua cửa kẻo đụng trần vì thành công đến hơi nhanh 😏",
+  
+  "💘 Quẻ Đào Hoa Đầu Năm: Tết này có người để ý bạn thật đó… dù họ đang để ý thêm vài người khác 😆 Nhưng biết đâu sau mấy ngày chúc Tết, bạn lại là người được chọn lì xì trái tim.",
+  
+  "💸 Quẻ Tài Lộc Xuân: Có lộc nhỏ nhỏ ghé thăm, kiểu đủ mua trà sữa size M không topping… nhưng cuối năm nhìn lại vẫn thấy mình dư được một chút vì biết tiết kiệm từ mùng 2 🥲",
+  
+  "🔥 Quẻ Vận Đỏ: Đỏ cả năm, đỏ từ phong bao lì xì tới bảng thông báo 'nhận tiền thành công'… còn thông báo 'trừ tiền' thì coi như cúng đầu năm cho xui nó đi hết 💀",
+  
+  "🧠 Quẻ Khôn Ngoan: Bạn sẽ thông minh hơn hẳn sau Tết… vì đã kịp ngu vài lần khi mua đồ giảm giá mà không coi kỹ 🤣 Nhưng không sao, năm mới học được thêm bài học là đã lời.",
+  
+  "🏃 Quẻ Nỗ Lực Khai Niên: Cố gắng từ mùng 1 thì cả năm hanh thông… còn không cố thì thành người từng hứa sẽ cố sau Tết 😌 Nhưng thôi, bắt đầu lại lúc nào cũng chưa muộn.",
+  
+  "🎯 Quẻ Mục Tiêu Đầu Xuân: Đặt mục tiêu cao như chậu mai trước cửa… dù không đạt hết thì ít nhất cũng có cái để khoe với họ hàng ngày mùng 3 😏",
+  
+  "🪞 Quẻ Tân Niên Tỉnh Thức: Người bạn cần thay đổi nhất trong năm mới… đang nhìn bạn khi bạn soi gương sửa tóc đi chúc Tết 🫠 Nhưng chỉ cần thay đổi chút mỗi ngày là vận may cũng đổi theo.",
+  
+  "🎲 Quẻ Hên Xui Ngày Xuân: 50% may mắn do trời, 50% do bạn… mà bạn thì lúc hên lúc xui 😆 Nhưng đầu năm cứ vui vẻ, thần Tài thấy thương là tự động cộng thêm điểm.",
+  
+  "💍 Quẻ Duyên Lành: Có cưới đó… cưới ai thì trời chưa cập nhật phiên bản Tết này 🤭 Nhưng khả năng cao là sẽ gặp đúng người vào một ngày tưởng chừng chỉ đi ăn Tết cho vui.",
+  
+  "📉 Quẻ Ví Mỏng: Ví có thể mỏng đi sau Tết vì lì xì quá tay… nhưng lòng dày lên vì được yêu thương 😌 Năm nay tiền có thể không nhiều, nhưng niềm vui thì không thiếu.",
+  
+  "🌪 Quẻ Drama Xuân: Bạn không tìm drama… drama vẫn tìm bạn trong mấy buổi họp mặt đầu năm 😭 Nhưng yên tâm, bạn chỉ đóng vai cameo chứ không phải nhân vật chính.",
+  
+  "🚀 Quẻ Bứt Phá Khai Xuân: Năm nay có bứt phá thật, bứt khỏi vùng an toàn và phá luôn giới hạn cũ 🤡 Nghe hơi đáng sợ nhưng đó là cách vũ trụ lì xì cho bạn một phiên bản xịn hơn.",
+  
+  "🍀 Quẻ Bình An: Không cần giàu nhất xóm, không cần nổi bật nhất họ… chỉ cần cả năm mạnh khỏe, gia đình sum vầy, cuối năm vẫn ngồi ăn bánh chưng cười vui là đã trúng quẻ tốt rồi 😌"
 ];
 
 const trollImages = [
-  "https://i.imgflip.com/30b1gx.jpg",
-  "https://i.imgflip.com/1bij.jpg",
-  "https://i.imgflip.com/4t0m5.jpg",
-  "https://i.imgflip.com/26am.jpg",
-  "https://i.imgflip.com/2/1ur9b0.jpg",
-  "https://i.imgflip.com/30zz5g.jpg",
-  "https://i.imgflip.com/1g8my4.jpg",
-  "https://i.imgflip.com/2fm6x.jpg",
-  "https://i.imgflip.com/24y43o.jpg",
-  "https://i.imgflip.com/2gnnjh.jpg",
-  "https://i.imgflip.com/3si4.jpg",
-  "https://i.imgflip.com/1jwhww.jpg",
-  "https://i.imgflip.com/3oevdk.jpg",
-  "https://i.imgflip.com/345v97.jpg",
-  "https://i.imgflip.com/4acd7j.png",
-  "https://i.imgflip.com/2hgfw.jpg"
+  "https://images.unsplash.com/photo-1549068106-b024baf5062d", // lì xì đỏ
+  "https://images.unsplash.com/photo-1582562124811-c09040d0a901", // hoa mai vàng
+  "https://images.unsplash.com/photo-1576086213369-97a306d36557", // hoa đào Tết
+  "https://images.unsplash.com/photo-1513151233558-d860c5398176", // pháo hoa
+  "https://images.unsplash.com/photo-1608889175123-8ee362201f81", // bánh chưng
+  "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806", // trang trí Tết đỏ vàng
+  "https://images.unsplash.com/photo-1579547621706-1a9c79d5c9f1", // thần tài tượng vàng
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9", // mèo vàng may mắn
+  "https://images.unsplash.com/photo-1520975922326-6f72cbb3e4d8", // bao lì xì cận cảnh
+  "https://images.unsplash.com/photo-1485908510055-98fdbb8b9c55", // đèn lồng đỏ
+  "https://images.unsplash.com/photo-1504198453319-5ce911bafcde", // chúc mừng năm mới
+  "https://images.unsplash.com/photo-1543253539-0b2bfe8b0c4b", // gia đình sum vầy
+  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622", // tiệc Tết
+  "https://images.unsplash.com/photo-1517263904808-5dc91e3e7044", // tiền vàng tài lộc
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // phong bao đỏ
+  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30"  // countdown năm mới
 ];
-
 let typingTimer = null;
 
 // Key lưu “đã gieo” (đổi tên key nếu muốn reset theo năm)
