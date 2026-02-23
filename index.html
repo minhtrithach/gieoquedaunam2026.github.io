@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lì Xì Tết - Toàn Lời Chúc + Meme Troll</title>
+
+<style>
+:root{
+  --red1:#7f1d1d;
+  --red2:#dc2626;
+  --gold:#facc15;
+  --text:#fff7ed;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:system-ui, sans-serif;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 20% 30%, #facc1533 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, #fde04722 0%, transparent 45%),
+    linear-gradient(135deg, var(--red1), var(--red2));
+}
+
+/* Hoa Tết */
+body::before{
+  content:"🌸 🌼 🌸 🌼 🌸 🌼 🌸 🌼 🌸 🌼";
+  position:absolute;
+  top:15px;
+  width:100%;
+  text-align:center;
+  font-size:26px;
+  opacity:.4;
+}
+
+.card{
+  width:min(650px,92vw);
+  background:rgba(120,0,0,.88);
+  border:2px solid var(--gold);
+  border-radius:24px;
+  padding:28px;
+  text-align:center;
+  box-shadow:0 0 40px #facc1544;
+}
+
+h1{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.range{
+  font-size:14px;
+  opacity:.8;
+  margin-bottom:20px;
+}
+
+.wish{
+  font-size:20px;
+  margin:20px 0;
+  min-height:60px;
+}
+
+button{
+  background:linear-gradient(45deg,#fde047,#facc15);
+  border:none;
+  padding:14px 22px;
+  border-radius:16px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+  color:#7f1d1d;
+  transition:.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #fde047;
+}
+
+/* Ảnh troll */
+.troll-img{
+  margin-top:15px;
+  min-height:200px;
+  display:flex;
+  justify-content:center;   /* căn giữa ngang */
+  align-items:center;       /* căn giữa dọc */
+}
+
+.troll-img img{
+  max-width:100%;
+  max-height:240px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  display:none;
+  animation: pop .3s ease;
+}
+
+@keyframes pop{
+  from{ transform:scale(.7); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🧧 Lì Xì May Mắn</h1>
+  <div class="range">Mệnh giá: lên đến 500.000đ (xui thì không)</div>
+
+  <div class="wish" id="wishText">
+    Bấm nút để nhận lộc đầu năm!
+  </div>
+
+  <div class="troll-img">
+    <img id="trollImage" src="" alt="meme troll">
+  </div>
+
+  <button onclick="receiveWish()">Nhận lì xì 🎉</button>
+</div>
+
+<script>
+
+const wishes = [
+  "🌟 Chúc bạn năm mới giàu lên, còn không thì già đi cũng được 😌",
+  "💰 Chúc tiền vào như nước… còn ra thì nhỏ giọt thôi nha 🥲",
+  "🚀 Chúc thăng tiến nhanh như deadline dí sát mông 💀",
+  "❤️ Chúc yêu đúng người, đừng yêu nhầm người yêu cũ 🤡",
+  "🎯 Chúc đặt mục tiêu vừa thôi, đừng mơ quá rồi lại buồn 😏",
+  "🔥 Chúc đỏ cả năm, đừng đỏ mỗi cái ví 😭",
+  "🏆 Chúc thành công rực rỡ… đừng rực rỡ mỗi cái mụn 🤣",
+  "🎉 Chúc vui vẻ cả năm, trừ lúc coi số dư tài khoản 😌",
+  "✨ Chúc mọi chuyện suôn sẻ, trừ việc giảm cân 😆",
+  "💸 Chúc giàu nhanh… còn nhanh cỡ nào thì tuỳ ông Trời 🫠"
+];
+
+const trollImages = [
+  // Troll face
+  "https://i.imgflip.com/30b1gx.jpg",
+
+  // One does not simply
+  "https://i.imgflip.com/1bij.jpg",
+
+  // Success kid
+  "https://i.imgflip.com/4t0m5.jpg",
+
+  // Grumpy cat
+  "https://i.imgflip.com/26am.jpg",
+
+  // Surprised pikachu
+  "https://i.imgflip.com/2/1ur9b0.jpg",
+
+  // Drake hotline bling
+  "https://i.imgflip.com/30zz5g.jpg",
+
+  // Distracted boyfriend
+  "https://i.imgflip.com/1ur9b0.jpg",
+
+  // Crying Jordan
+  "https://i.imgflip.com/1g8my4.jpg",
+
+  // Hide the pain Harold
+  "https://i.imgflip.com/2fm6x.jpg",
+
+  // Change my mind
+  "https://i.imgflip.com/24y43o.jpg",
+
+  // Monkey puppet side eye
+  "https://i.imgflip.com/2gnnjh.jpg",
+
+  // This is fine
+  "https://i.imgflip.com/3si4.jpg",
+
+  // Expanding brain
+  "https://i.imgflip.com/1jwhww.jpg",
+
+  // Sad Pablo Escobar
+  "https://i.imgflip.com/3oevdk.jpg",
+
+  // Woman yelling at cat
+  "https://i.imgflip.com/345v97.jpg",
+
+  // Gigachad
+  "https://i.imgflip.com/4acd7j.png",
+
+  // Clown applying makeup
+  "https://i.imgflip.com/2hgfw.jpg"
+];
+
+function receiveWish(){
+  // random lời chúc
+  const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+  document.getElementById("wishText").innerHTML = randomWish;
+
+  // random ảnh troll
+  const randomImage = trollImages[Math.floor(Math.random() * trollImages.length)];
+  const img = document.getElementById("trollImage");
+  img.src = randomImage;
+  img.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
