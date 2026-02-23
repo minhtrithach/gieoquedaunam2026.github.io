@@ -192,6 +192,27 @@ h1{
   line-height:1.35;
 }
 
+/* Phần giải quẻ */
+.detail{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid #fde04755;
+  background:rgba(255,255,255,.06);
+  font-size:15px;
+  line-height:1.55;
+  color:#fde68a;
+  white-space:pre-line;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .45s ease, transform .45s ease;
+  text-align:left;
+}
+.detail.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 /* Nút */
 button{
   background:linear-gradient(45deg,#fde047,#facc15);
@@ -256,7 +277,7 @@ button:hover{
   <h1>🔮 Gieo Quẻ Đầu Năm</h1>
   <div class="range">Tỉ lệ linh nghiệm: tuỳ tâm trạng vũ trụ (và wifi)</div>
 
-  <!-- Bao "gieo quẻ" (click cũng mở được) -->
+  <!-- Bao "gieo quẻ" -->
   <div class="envelope-wrapper">
     <div class="envelope" id="envelope" onclick="openEnvelope()">
       <div class="flap"></div>
@@ -265,183 +286,141 @@ button:hover{
     </div>
     <div class="paper" id="paper">QUẺ</div>
   </div>
+
   <div class="hint">Bấm nút hoặc bấm vào “bao” để gieo quẻ 🔮</div>
 
-  <div class="wish" id="wishText">
-    Bấm để gieo quẻ đầu năm!
-  </div>
+  <div class="wish" id="wishText">Bấm để gieo quẻ đầu năm!</div>
+
+  <!-- ✅ Thêm phần giải quẻ -->
+  <div class="detail" id="detailText"></div>
 
   <div class="troll-img">
     <img id="trollImage" src="" alt="meme troll">
   </div>
 
-  <button onclick="openEnvelope()">Gieo quẻ 🔮</button>
+  <button id="btnFortune" onclick="openEnvelope()">Gieo quẻ 🔮</button>
 </div>
 
 <script>
 const wishes = [
   "🧧 Quẻ 1 – Khai Tâm: Năm nay điều quan trọng nhất không phải bạn có bao nhiêu tiền, mà là bạn giữ được bao nhiêu bình yên. Khi lòng nhẹ, đường đi tự khắc rộng. Khi tâm sáng, vận may tự tìm tới.",
-
   "🌅 Quẻ 2 – Bình Minh Mới: Một chu kỳ mới mở ra cho bạn. Những gì chưa thành ở năm cũ sẽ có cơ hội làm lại, nhưng với phiên bản bạn trưởng thành hơn và vững vàng hơn.",
-
   "💖 Quẻ 3 – Tình Cảm Thuận Hòa: Người ở lại bên bạn năm nay là người thật lòng. Không cần ồn ào, không cần khoa trương, chỉ cần đủ chân thành là đủ lâu dài.",
-
   "💼 Quẻ 4 – Sự Nghiệp Tăng Tiến: Thành công không đến trong một đêm, nhưng những bước đi nhỏ của bạn đang tích lũy thành nền tảng lớn. Cứ bền bỉ, bạn sẽ thấy thành quả rõ ràng vào cuối năm.",
-
   "💰 Quẻ 5 – Tài Lộc Ổn Định: Tài chính năm nay không bùng nổ nhưng ổn định và có xu hướng tăng dần. Quan trọng nhất là bạn học được cách quản lý và trân trọng đồng tiền mình làm ra.",
-
   "🌿 Quẻ 6 – Sức Khỏe Là Vàng: Cơ thể là vốn quý. Khi bạn bắt đầu yêu thương bản thân đúng cách, năng lượng tích cực sẽ lan tỏa và kéo theo nhiều cơ hội tốt.",
-
   "📚 Quẻ 7 – Học Hỏi Không Ngừng: Năm nay bạn sẽ học được điều quan trọng giúp thay đổi tư duy. Một cuốn sách, một cuộc trò chuyện, hay một thất bại nhỏ cũng có thể mở ra cánh cửa lớn.",
-
   "🌈 Quẻ 8 – Vận May Âm Thầm: Không phải lúc nào bạn cũng nhận ra, nhưng có nhiều điều xui đã được hóa giải trước khi kịp xảy ra. Vũ trụ đang âm thầm bảo vệ bạn.",
-
   "🤝 Quẻ 9 – Quý Nhân Xuất Hiện: Sẽ có người giúp bạn đúng lúc, có thể bằng một lời khuyên, một cơ hội, hoặc một sự tin tưởng. Hãy trân trọng những mối quan hệ chân thành.",
-
   "🔥 Quẻ 10 – Tự Tin Tỏa Sáng: Khi bạn tin vào bản thân, người khác cũng sẽ tin vào bạn. Năm nay là năm bạn dám bước ra khỏi vùng an toàn.",
-
   "🏡 Quẻ 11 – Gia Đình Ấm Êm: Gia đình là điểm tựa. Dù ngoài kia có bao nhiêu sóng gió, bạn vẫn có nơi để trở về và nạp lại năng lượng.",
-
   "🎯 Quẻ 12 – Mục Tiêu Rõ Ràng: Khi bạn xác định rõ điều mình muốn, con đường sẽ bớt rẽ ngang. Tập trung là chìa khóa cho thành tựu năm nay.",
-
   "🤡 Quẻ 13 – Troll Nhẹ: Năm nay bạn vẫn giàu… giàu trải nghiệm, giàu bài học, và đôi khi giàu luôn cả bill thanh toán cuối tháng 😆 Nhưng không sao, sống được là lời rồi.",
-
   "🌊 Quẻ 14 – Sóng Lặng Sau Bão: Những khó khăn vừa qua chỉ để rèn bạn mạnh mẽ hơn. Từ giờ trở đi, mọi việc sẽ trôi chảy hơn bạn nghĩ.",
-
   "💡 Quẻ 15 – Ý Tưởng Đột Phá: Bạn sẽ có một ý tưởng hay ho có thể thay đổi hướng đi của mình. Đừng bỏ qua những suy nghĩ tưởng chừng nhỏ bé.",
-
   "🧘 Quẻ 16 – Tâm An Trí Sáng: Khi bạn không còn quá vội vàng, mọi thứ sẽ đến đúng thời điểm. Bình tĩnh chính là sức mạnh lớn nhất.",
-
   "🌟 Quẻ 17 – Tỏa Sáng Đúng Lúc: Không cần cạnh tranh gay gắt, bạn vẫn có chỗ đứng riêng. Ánh sáng của bạn là sự bền bỉ và tử tế.",
-
   "📈 Quẻ 18 – Tăng Trưởng Từng Bước: Không phải bước nhảy vọt, mà là tiến bộ từng ngày. Đến cuối năm, bạn sẽ ngạc nhiên vì mình đã đi xa đến vậy.",
-
   "💞 Quẻ 19 – Kết Nối Đúng Người: Những mối quan hệ hời hợt dần rời đi, nhường chỗ cho sự gắn kết thật sự.",
-
   "🌻 Quẻ 20 – Lạc Quan Bền Bỉ: Bạn học được cách nhìn vấn đề nhẹ hơn, nhờ đó cuộc sống cũng nhẹ nhàng hơn.",
-
   "🚪 Quẻ 21 – Cánh Cửa Mới: Một cơ hội mới sẽ mở ra khi bạn dám nói “có” với điều mình từng sợ.",
-
   "💎 Quẻ 22 – Giá Trị Bản Thân: Bạn nhận ra mình xứng đáng với điều tốt đẹp hơn và bắt đầu đặt tiêu chuẩn cao hơn.",
-
   "🕊 Quẻ 23 – Buông Bỏ Nhẹ Nhàng: Có những điều không thuộc về bạn. Khi buông, bạn sẽ thấy lòng nhẹ và đường sáng.",
-
   "📦 Quẻ 24 – Thu Hoạch Xứng Đáng: Công sức bạn bỏ ra không vô ích. Trái ngọt sẽ đến, chỉ là cần thêm chút thời gian.",
-
   "🌙 Quẻ 25 – Nghỉ Ngơi Đúng Cách: Biết dừng lại cũng là một dạng tiến lên.",
-
   "🎁 Quẻ 26 – Lộc Bất Ngờ: Một niềm vui nhỏ bất ngờ sẽ khiến bạn mỉm cười rất lâu.",
-
   "🤡 Quẻ 27 – Troll Sương Sương: Năm nay bạn hết ế… vì bạn hết quan tâm tới chuyện ế nữa 😌 Tự nhiên khi không cần, lại có người cần.",
-
   "🏔 Quẻ 28 – Kiên Cường: Bạn mạnh mẽ hơn bạn tưởng. Những thử thách chỉ làm bạn thêm bản lĩnh.",
-
   "🌸 Quẻ 29 – Tái Sinh: Một phiên bản mới của bạn đang dần hình thành.",
-
   "📊 Quẻ 30 – Ổn Định Tài Chính: Biết cân đối thu chi, bạn sẽ không còn áp lực như trước.",
-
   "🌤 Quẻ 31 – Trời Quang Sau Mưa: Những điều khó chịu sẽ sớm qua đi.",
-
   "🫶 Quẻ 32 – Yêu Thương Đủ Đầy: Bạn nhận được tình cảm chân thành hơn mong đợi.",
-
   "🧭 Quẻ 33 – Định Hướng Rõ Ràng: Bạn biết mình muốn gì hơn trước.",
-
   "💪 Quẻ 34 – Sức Mạnh Nội Tâm: Bạn học cách tự đứng vững.",
-
   "🌊 Quẻ 35 – Thuận Dòng: Mọi việc trôi chảy tự nhiên.",
-
   "🔑 Quẻ 36 – Chìa Khóa Thành Công: Kỷ luật sẽ mở ra cánh cửa lớn.",
-
   "🌿 Quẻ 37 – Chữa Lành: Bạn dần tha thứ cho quá khứ.",
-
   "🚀 Quẻ 38 – Bứt Phá: Một bước đi táo bạo mang lại kết quả lớn.",
-
   "🎨 Quẻ 39 – Sáng Tạo: Tài năng tiềm ẩn được đánh thức.",
-
   "📖 Quẻ 40 – Viết Lại Câu Chuyện: Bạn có quyền thay đổi hướng đi.",
-
   "🌞 Quẻ 41 – Ánh Sáng: Niềm tin giúp bạn vượt qua nghi ngờ.",
-
   "🤡 Quẻ 42 – Troll Nhẹ Nhàng: Tiền sẽ tới… rồi tiền sẽ đi… nhưng ít nhất nó cũng ghé thăm chứ không block bạn luôn 😆",
-
   "🌺 Quẻ 43 – Nở Hoa: Công sức âm thầm sẽ được ghi nhận.",
-
   "🪴 Quẻ 44 – Nuôi Dưỡng: Hãy chăm sóc ước mơ như chăm cây nhỏ.",
-
   "🛤 Quẻ 45 – Hành Trình: Đừng so mình với người khác.",
-
   "💗 Quẻ 46 – Bao Dung: Tha thứ giúp bạn tự do.",
-
   "🌌 Quẻ 47 – Tầm Nhìn Lớn: Nghĩ xa hơn, bạn sẽ đi xa hơn.",
-
   "🏆 Quẻ 48 – Thành Tựu: Một mục tiêu lớn sẽ hoàn thành.",
-
   "📡 Quẻ 49 – Cơ Hội: Hãy mở lòng với lời đề nghị mới.",
-
   "🌱 Quẻ 50 – Gieo Hạt: Việc bạn làm hôm nay sẽ nở hoa mai sau.",
-
   "🧘‍♂️ Quẻ 51 – Cân Bằng: Giữ được cân bằng là giữ được tất cả.",
-
   "💫 Quẻ 52 – Nhẹ Nhàng: Không cần ồn ào vẫn có giá trị.",
-
   "🕰 Quẻ 53 – Đúng Thời Điểm: Mọi thứ đến khi bạn sẵn sàng.",
-
   "🌄 Quẻ 54 – Vươn Lên: Bạn không còn sợ thất bại.",
-
   "🤡 Quẻ 55 – Troll Dễ Thương: Năm nay giảm cân thành công… giảm tiền trong ví trước 🤣 Nhưng bù lại tăng kinh nghiệm sống.",
-
   "🌷 Quẻ 56 – Dịu Dàng: Sự mềm mỏng sẽ giúp bạn chiến thắng.",
-
   "💡 Quẻ 57 – Thấu Hiểu: Bạn hiểu mình hơn bao giờ hết.",
-
   "🎈 Quẻ 58 – Niềm Vui Nhỏ: Hạnh phúc đến từ điều giản dị.",
-
   "📌 Quẻ 59 – Tập Trung: Bớt phân tâm, tăng hiệu quả.",
-
   "🌊 Quẻ 60 – Linh Hoạt: Biết thích nghi là lợi thế lớn.",
-
   "🏡 Quẻ 61 – Ổn Định: Bạn xây được nền tảng vững chắc.",
-
   "💖 Quẻ 62 – Tình Yêu Chân Thành: Người ở lại là người đáng giữ.",
-
   "🌟 Quẻ 63 – Tỏa Sáng Âm Thầm: Bạn không cần chứng minh quá nhiều.",
-
   "📈 Quẻ 64 – Phát Triển: Từng bước nhỏ tạo thay đổi lớn.",
-
   "🌿 Quẻ 65 – Bình Yên: Sự yên ổn là phần thưởng.",
-
   "🪙 Quẻ 66 – Tài Lộc Tăng Dần: Thu nhập cải thiện rõ rệt.",
-
   "🎯 Quẻ 67 – Hoàn Thành: Bạn đạt được điều từng nghĩ là xa vời.",
-
   "🌸 Quẻ 68 – Nhẹ Nhàng Đón Nhận: Đôi khi chỉ cần sống tốt là đủ.",
-
   "🤡 Quẻ 69 – Troll Kết Sổ: Nếu mọi quẻ trên không trúng… thì trúng một điều chắc chắn: bạn vẫn còn nguyên cơ hội để làm lại và làm tốt hơn 😌"
 ];
+
 const trollImages = [
-  "https://images.unsplash.com/photo-1549068106-b024baf5062d", // lì xì đỏ
-  "https://images.unsplash.com/photo-1582562124811-c09040d0a901", // hoa mai vàng
-  "https://images.unsplash.com/photo-1576086213369-97a306d36557", // hoa đào Tết
-  "https://images.unsplash.com/photo-1513151233558-d860c5398176", // pháo hoa
-  "https://images.unsplash.com/photo-1608889175123-8ee362201f81", // bánh chưng
-  "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806", // trang trí Tết đỏ vàng
-  "https://images.unsplash.com/photo-1579547621706-1a9c79d5c9f1", // thần tài tượng vàng
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9", // mèo vàng may mắn
-  "https://images.unsplash.com/photo-1520975922326-6f72cbb3e4d8", // bao lì xì cận cảnh
-  "https://images.unsplash.com/photo-1485908510055-98fdbb8b9c55", // đèn lồng đỏ
-  "https://images.unsplash.com/photo-1504198453319-5ce911bafcde", // chúc mừng năm mới
-  "https://images.unsplash.com/photo-1543253539-0b2bfe8b0c4b", // gia đình sum vầy
-  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622", // tiệc Tết
-  "https://images.unsplash.com/photo-1517263904808-5dc91e3e7044", // tiền vàng tài lộc
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb", // phong bao đỏ
-  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30"  // countdown năm mới
+  "https://images.unsplash.com/photo-1549068106-b024baf5062d",
+  "https://images.unsplash.com/photo-1582562124811-c09040d0a901",
+  "https://images.unsplash.com/photo-1576086213369-97a306d36557",
+  "https://images.unsplash.com/photo-1513151233558-d860c5398176",
+  "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
+  "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806",
+  "https://images.unsplash.com/photo-1579547621706-1a9c79d5c9f1",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+  "https://images.unsplash.com/photo-1520975922326-6f72cbb3e4d8",
+  "https://images.unsplash.com/photo-1485908510055-98fdbb8b9c55",
+  "https://images.unsplash.com/photo-1504198453319-5ce911bafcde",
+  "https://images.unsplash.com/photo-1543253539-0b2bfe8b0c4b",
+  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622",
+  "https://images.unsplash.com/photo-1517263904808-5dc91e3e7044",
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30"
 ];
+
+/* ✅ DÁN FULL wishDetails 1→69 CỦA BẠN VÀO ĐÂY (y như đoạn bạn đã có) */
+const wishDetails = [
+  `🔎 Giải quẻ 1 – Khai Tâm
+• Tổng quan: Năm nay “nhẹ lòng thì nặng vía”. Bạn càng bớt lo, mọi thứ càng thông.
+• Công việc: Đừng ôm quá nhiều thứ một lúc; chọn 1-2 mũi nhọn rồi làm sâu.
+• Tài chính: Tiền vào đều nhưng dễ tiêu vì “thưởng bản thân”; nên có quỹ tiết kiệm tự động.
+• Tình cảm & sức khỏe: Bình yên đến từ ranh giới lành mạnh. Ngủ đủ sẽ kéo vận may lên.
+• Lời nhắc: Bình tĩnh là kỹ năng kiếm tiền bền nhất.`,
+  `🔎 Giải quẻ 2 – Bình Minh Mới
+• Tổng quan: Vòng lặp cũ khép lại, bạn có cơ hội làm lại theo cách trưởng thành hơn.
+• Công việc: Thử lại dự án từng dang dở; lần này hãy tối ưu quy trình và kỷ luật.
+• Tài chính: Có khoản chi “đầu tư cho tương lai” (khóa học/thiết bị) khá đáng.
+• Tình cảm & sức khỏe: Dọn lại các mối quan hệ lửng lơ; ưu tiên người khiến bạn an tâm.
+• Lời nhắc: Làm lại không phải lùi—là nâng cấp.`,
+  /* ... tiếp tục tới quẻ 69 (giữ nguyên như bạn đã paste) ... */
+  `🔎 Giải quẻ 69 – Troll Kết Sổ
+• Tổng quan: Nếu quẻ nào không trúng… thì trúng chắc 1 điều: bạn còn cơ hội làm lại 😌
+• Công việc: Năm nay có lúc lỡ nhịp; nhưng bạn quay lại đường đúng rất nhanh.
+• Tài chính: Có lúc hụt; nhưng bạn rút kinh nghiệm, càng về sau càng ổn.
+• Tình cảm & sức khỏe: Đừng tự trách; đời cho bạn “reset” nhiều lần.
+• Lời nhắc: Quan trọng là bạn không bỏ cuộc.`
+];
+
 let typingTimer = null;
 
-// Key lưu “đã gieo” (đổi tên key nếu muốn reset theo năm)
+/* Key lưu “đã gieo” */
 const STORAGE_KEY = "fortune_once_v1";
 
-/** Lấy quẻ đã lưu (nếu có) */
 function getSavedFortune(){
   try{
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -454,16 +433,18 @@ function getSavedFortune(){
   }
 }
 
-/** Lưu quẻ */
 function saveFortune(index){
-  const data = {
-    index,
-    savedAt: new Date().toISOString()
-  };
+  const data = { index, savedAt: new Date().toISOString() };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-/** Hiển thị quẻ với hiệu ứng gõ chữ */
+function resetDetail(){
+  const detailEl = document.getElementById("detailText");
+  detailEl.classList.remove("show");
+  detailEl.textContent = "";
+}
+
+/* Hiển thị quẻ với hiệu ứng gõ chữ */
 function typeText(fullText, onDone){
   const textEl = document.getElementById("wishText");
   textEl.innerHTML = `<span id="typed"></span><span class="cursor">|</span>`;
@@ -483,26 +464,30 @@ function typeText(fullText, onDone){
   }, 25);
 }
 
-/** Hiển thị meme theo index (cố định) */
-function showImageByIndex(index){
+/* Hiển thị meme theo index + show giải quẻ */
+function showImageAndDetail(index){
   const img = document.getElementById("trollImage");
   const imageIndex = index % trollImages.length;
   img.src = trollImages[imageIndex];
   img.style.display = "block";
+
+  const detailEl = document.getElementById("detailText");
+  detailEl.textContent = wishDetails[index] || "🔎 (Chưa có giải quẻ cho quẻ này)";
+  detailEl.classList.add("show");
 }
 
-/** Mở bao + show quẻ */
+/* Mở bao + show quẻ */
 function animateOpenThenShow(index){
   const envelope = document.getElementById("envelope");
   const paper = document.getElementById("paper");
   const confetti = document.getElementById("confetti");
 
-  // reset animation (nhưng KHÔNG reset quẻ)
+  resetDetail();
+
   envelope.classList.remove("open");
   paper.style.opacity = 0;
   confetti.classList.remove("show");
 
-  // rung
   envelope.classList.add("shake");
 
   setTimeout(()=>{
@@ -515,33 +500,28 @@ function animateOpenThenShow(index){
       paper.textContent = "QUẺ";
 
       const fullText = wishes[index];
-      typeText(fullText, ()=> showImageByIndex(index));
+      typeText(fullText, ()=> showImageAndDetail(index));
     }, 380);
 
   }, 380);
 }
 
-/** Bấm gieo: chỉ cho 1 lần */
+/* Bấm gieo: chỉ cho 1 lần */
 function openEnvelope(){
   const saved = getSavedFortune();
 
   if(saved){
-    // 🚫 Đã gieo rồi -> KHÔNG cho gieo nữa
     const textEl = document.getElementById("wishText");
     textEl.innerHTML = "🛑 Bạn đã gieo quẻ rồi nha! Đừng tham, coi chừng ứng nghiệm 😌";
-    // vẫn cho xem lại quẻ cũ bằng cách mở lại animation (tuỳ bạn)
-    // Nếu bạn muốn “cấm tuyệt đối” (không mở lại luôn) thì COMMENT dòng dưới.
     animateOpenThenShow(saved.index);
     return;
   }
 
-  // ✅ Lần đầu: random, lưu lại, rồi mở
   const index = Math.floor(Math.random() * wishes.length);
   saveFortune(index);
   animateOpenThenShow(index);
 
-  // Khoá nút luôn cho đúng “không cho gieo nữa”
-  const btn = document.querySelector("button");
+  const btn = document.getElementById("btnFortune");
   if(btn){
     btn.disabled = true;
     btn.textContent = "Đã gieo quẻ ✅";
@@ -550,19 +530,17 @@ function openEnvelope(){
   }
 }
 
-// Nếu bạn muốn: load trang lên là tự hiện trạng thái “đã gieo” (không cần bấm)
-// thì bỏ comment đoạn dưới:
 window.addEventListener("load", ()=>{
   const saved = getSavedFortune();
   if(saved){
-    const btn = document.querySelector("button");
+    const btn = document.getElementById("btnFortune");
     if(btn){
       btn.disabled = true;
       btn.textContent = "Đã gieo quẻ ✅";
       btn.style.opacity = .85;
       btn.style.cursor = "not-allowed";
     }
-    // Có thể auto show lại quẻ cũ:
+    // Nếu muốn tự show lại quẻ cũ khi load trang:
     // animateOpenThenShow(saved.index);
   }
 });
