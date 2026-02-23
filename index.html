@@ -395,20 +395,483 @@ const trollImages = [
 
 /* ✅ DÁN FULL wishDetails 1→69 CỦA BẠN VÀO ĐÂY (y như đoạn bạn đã có) */
 const wishDetails = [
-  `🔎 Giải quẻ 1 – Khai Tâm
+`🔎 Giải quẻ 1 – Khai Tâm
 • Tổng quan: Năm nay “nhẹ lòng thì nặng vía”. Bạn càng bớt lo, mọi thứ càng thông.
 • Công việc: Đừng ôm quá nhiều thứ một lúc; chọn 1-2 mũi nhọn rồi làm sâu.
 • Tài chính: Tiền vào đều nhưng dễ tiêu vì “thưởng bản thân”; nên có quỹ tiết kiệm tự động.
 • Tình cảm & sức khỏe: Bình yên đến từ ranh giới lành mạnh. Ngủ đủ sẽ kéo vận may lên.
 • Lời nhắc: Bình tĩnh là kỹ năng kiếm tiền bền nhất.`,
-  `🔎 Giải quẻ 2 – Bình Minh Mới
+
+`🔎 Giải quẻ 2 – Bình Minh Mới
 • Tổng quan: Vòng lặp cũ khép lại, bạn có cơ hội làm lại theo cách trưởng thành hơn.
 • Công việc: Thử lại dự án từng dang dở; lần này hãy tối ưu quy trình và kỷ luật.
 • Tài chính: Có khoản chi “đầu tư cho tương lai” (khóa học/thiết bị) khá đáng.
 • Tình cảm & sức khỏe: Dọn lại các mối quan hệ lửng lơ; ưu tiên người khiến bạn an tâm.
 • Lời nhắc: Làm lại không phải lùi—là nâng cấp.`,
-  /* ... tiếp tục tới quẻ 69 (giữ nguyên như bạn đã paste) ... */
-  `🔎 Giải quẻ 69 – Troll Kết Sổ
+
+`🔎 Giải quẻ 3 – Tình Cảm Thuận Hòa
+• Tổng quan: Năm của sự chân thành: ít ồn ào nhưng sâu và bền.
+• Công việc: Làm việc nhóm thuận; bạn được người khác tin cậy giao phần quan trọng.
+• Tài chính: Chi nhiều cho gia đình/đối tác/đi chơi; miễn bạn có kế hoạch là ổn.
+• Tình cảm & sức khỏe: Ai ở lại là người thật. Đừng thử lòng quá đà.
+• Lời nhắc: Yêu bền là yêu rõ ràng.`,
+
+`🔎 Giải quẻ 4 – Sự Nghiệp Tăng Tiến
+• Tổng quan: Tiến chậm nhưng chắc; cuối năm nhìn lại sẽ thấy “lên hẳn level”.
+• Công việc: Hợp với việc tích lũy kỹ năng, xây portfolio/uy tín hơn là chạy theo hào quang.
+• Tài chính: Thu nhập tăng theo bậc thang; có thể có thưởng/hoa hồng nếu bền bỉ.
+• Tình cảm & sức khỏe: Dễ bị làm quá giờ; nhớ nghỉ ngắn, đi bộ, giãn mắt.
+• Lời nhắc: Mỗi ngày 1% là đủ tạo kỳ tích.`,
+
+`🔎 Giải quẻ 5 – Tài Lộc Ổn Định
+• Tổng quan: Không bùng nổ nhưng “ấm”. Bạn học cách giữ tiền tốt hơn.
+• Công việc: Nên làm thứ có dòng tiền đều; tránh nhảy việc vì cảm xúc.
+• Tài chính: Phù hợp chiến lược: 50/30/20 hoặc “trả mình trước” (tiết kiệm trước, tiêu sau).
+• Tình cảm & sức khỏe: Bớt stress vì tiền; tinh thần đỡ nặng là vận mở.
+• Lời nhắc: Giàu là biết quản trị.`,
+
+`🔎 Giải quẻ 6 – Sức Khỏe Là Vàng
+• Tổng quan: Cơ thể là “động cơ vận may”. Chăm đúng là thấy đời khác.
+• Công việc: Năng suất tăng khi bạn ngủ đủ và ăn đúng; đừng coi thường.
+• Tài chính: Tốn tiền cho sức khỏe là khoản lời dài hạn; khám định kỳ/fitness đều ổn.
+• Tình cảm & sức khỏe: Tránh thức khuya kéo dài; dễ đau vai gáy/bao tử nếu bỏ bữa.
+• Lời nhắc: Đừng đợi mệt mới thương mình.`,
+
+`🔎 Giải quẻ 7 – Học Hỏi Không Ngừng
+• Tổng quan: Một “cú mở não” sẽ đến từ sách/mentor/thất bại nhỏ.
+• Công việc: Hợp học kỹ năng mới để đổi vị trí tốt hơn.
+• Tài chính: Chi cho học tập sinh lời; nhưng học xong phải áp dụng, đừng sưu tầm khóa học.
+• Tình cảm & sức khỏe: Bạn nói chuyện sâu hơn, ít drama hơn.
+• Lời nhắc: Biết thêm 1 điều, đời rộng thêm 1 đường.`,
+
+`🔎 Giải quẻ 8 – Vận May Âm Thầm
+• Tổng quan: Bạn được “né xui” nhiều hơn bạn nghĩ; có người/điều gì đó đang bảo hộ.
+• Công việc: Đừng tự phá vận bằng vội vàng; kiểm tra kỹ trước khi chốt.
+• Tài chính: Tránh đầu tư theo FOMO; tiền giữ được cũng là lãi.
+• Tình cảm & sức khỏe: May mắn đến từ thói quen nhỏ: ngủ sớm, uống nước, ít nóng giận.
+• Lời nhắc: Thấy bình thường là đang may.`,
+
+`🔎 Giải quẻ 9 – Quý Nhân Xuất Hiện
+• Tổng quan: Có người giúp đúng lúc—thường xuất hiện qua công việc/kết nối cũ.
+• Công việc: Mở rộng networking; nói rõ bạn đang làm gì và cần gì.
+• Tài chính: Cơ hội kiếm thêm đến từ “người giới thiệu”.
+• Tình cảm & sức khỏe: Quý nhân đôi khi là người thân nhắc bạn sống chậm lại.
+• Lời nhắc: Lịch sự + giữ chữ tín = hút quý nhân.`,
+
+`🔎 Giải quẻ 10 – Tự Tin Tỏa Sáng
+• Tổng quan: Năm của việc “dám”. Bạn bước ra khỏi vùng an toàn là vận bật.
+• Công việc: Mạnh dạn nhận task khó; đó là cửa lên vị trí mới.
+• Tài chính: Tăng thu nhờ tăng giá trị; đừng sợ đề xuất mức lương/giá hợp lý.
+• Tình cảm & sức khỏe: Tự tin nhưng đừng tự ép; chăm cơ thể để tự tin bền.
+• Lời nhắc: Tin mình trước, đời mới tin bạn.`,
+
+`🔎 Giải quẻ 11 – Gia Đình Ấm Êm
+• Tổng quan: Hậu phương vững là bạn vững. Năm nay “nhà” là nơi hồi pin.
+• Công việc: Khi tinh thần ổn, công việc tự trôi. Hợp làm việc lâu dài hơn là đổi liên tục.
+• Tài chính: Có khoản chi cho gia đình/nhà cửa; chi đúng chỗ thì rất đáng.
+• Tình cảm & sức khỏe: Dành thời gian cho bữa cơm/buổi nói chuyện thật.
+• Lời nhắc: Đừng thắng ngoài xã hội rồi thua trong nhà.`,
+
+`🔎 Giải quẻ 12 – Mục Tiêu Rõ Ràng
+• Tổng quan: Tập trung = vận. Càng rõ mục tiêu, càng ít rẽ ngang.
+• Công việc: Nên đặt OKR cá nhân theo quý; làm xong mới mở việc mới.
+• Tài chính: Mục tiêu tiền bạc rõ ràng giúp bạn bớt tiêu linh tinh.
+• Tình cảm & sức khỏe: Biết mình muốn gì thì tránh được mối quan hệ mập mờ.
+• Lời nhắc: Rõ ràng không làm bạn vô duyên—nó cứu bạn khỏi lạc đường.`,
+
+`🔎 Giải quẻ 13 – Troll Nhẹ
+• Tổng quan: Giàu trải nghiệm, giàu bài học, giàu… hóa đơn 😆
+• Công việc: Vất vả nhưng lên trình; bạn học nhanh khi bị “ném” vào tình huống khó.
+• Tài chính: Có tháng “rỗng ví” vì phát sinh; nên có quỹ dự phòng 3–6 tháng.
+• Tình cảm & sức khỏe: Đừng cáu vì tiền; cười một cái, tự nhiên nhẹ.
+• Lời nhắc: Đời troll bạn, bạn troll lại bằng cách sống tốt.`,
+
+`🔎 Giải quẻ 14 – Sóng Lặng Sau Bão
+• Tổng quan: Giai đoạn căng đã qua, mọi thứ bắt đầu “êm”.
+• Công việc: Việc khó giảm dần; bạn có thời gian sắp xếp lại và tối ưu.
+• Tài chính: Dòng tiền ổn hơn; trả nợ/giảm áp lực được.
+• Tình cảm & sức khỏe: Tinh thần hồi phục; chăm ngủ là thấy khác ngay.
+• Lời nhắc: Đừng mang thói quen phòng thủ vào giai đoạn yên bình.`,
+
+`🔎 Giải quẻ 15 – Ý Tưởng Đột Phá
+• Tổng quan: Một ý tưởng nhỏ có thể đổi hướng lớn.
+• Công việc: Ghi lại ý tưởng ngay; biến thành thử nghiệm nhỏ trong 7–14 ngày.
+• Tài chính: Ý tưởng này có thể tạo thêm nguồn thu phụ.
+• Tình cảm & sức khỏe: Đừng cố hoàn hảo; cứ làm trước rồi chỉnh sau.
+• Lời nhắc: Ý tưởng không cứu bạn—thực thi mới cứu.`,
+
+`🔎 Giải quẻ 16 – Tâm An Trí Sáng
+• Tổng quan: Bạn thắng nhờ bình tĩnh. Năm nay càng vội càng dễ sai.
+• Công việc: Hợp làm việc cần tư duy sâu; giảm đa nhiệm.
+• Tài chính: Tránh quyết định tiền bạc lúc cảm xúc; chờ 24h trước khi chốt.
+• Tình cảm & sức khỏe: Giữ nhịp thở, giảm caffeine, giảm thức khuya.
+• Lời nhắc: Chậm lại để nhanh hơn.`,
+
+`🔎 Giải quẻ 17 – Tỏa Sáng Đúng Lúc
+• Tổng quan: Bạn có chỗ đứng riêng; không cần cạnh tranh ồn ào.
+• Công việc: Uy tín tăng nhờ sự bền bỉ và tử tế; được giao việc “xương sống”.
+• Tài chính: Thu nhập tăng theo danh tiếng; làm tốt là tự có người tìm đến.
+• Tình cảm & sức khỏe: Đừng tự so sánh; so với chính mình hôm qua là đủ.
+• Lời nhắc: Ánh sáng bền nhất là ánh sáng âm thầm.`,
+
+`🔎 Giải quẻ 18 – Tăng Trưởng Từng Bước
+• Tổng quan: Tiến đều; cuối năm bất ngờ vì mình đã đi xa.
+• Công việc: Mỗi tuần cải thiện 1 kỹ năng; chọn 1 KPI cá nhân theo dõi.
+• Tài chính: Tiết kiệm/đầu tư đều đặn thắng may mắn.
+• Tình cảm & sức khỏe: Thói quen nhỏ tốt (đi bộ, uống nước) tạo khác biệt lớn.
+• Lời nhắc: Đều đặn > bùng nổ.`,
+
+`🔎 Giải quẻ 19 – Kết Nối Đúng Người
+• Tổng quan: Mối hời hợt rời đi, mối thật ở lại.
+• Công việc: Chọn làm với người tử tế; ít drama thì đường dài.
+• Tài chính: Hợp tác rõ ràng giấy tờ; tránh “làm vì tình nghĩa” mơ hồ.
+• Tình cảm & sức khỏe: Bạn bớt mệt vì không còn phải “gồng”.
+• Lời nhắc: Chất lượng hơn số lượng.`,
+
+`🔎 Giải quẻ 20 – Lạc Quan Bền Bỉ
+• Tổng quan: Bạn học cách nhìn nhẹ; nhờ đó mọi thứ nhẹ theo.
+• Công việc: Giải quyết vấn đề nhanh hơn vì bạn không hoảng.
+• Tài chính: Lạc quan không phải tiêu bừa—là tin mình quản được.
+• Tình cảm & sức khỏe: Tinh thần tốt giúp cơ thể khỏe hơn rõ.
+• Lời nhắc: Lạc quan là kỷ luật của tâm trí.`,
+
+`🔎 Giải quẻ 21 – Cánh Cửa Mới
+• Tổng quan: Cơ hội tới khi bạn dám “có”.
+• Công việc: Nhận lời thử sức ở vai trò mới/đầu việc mới—đây là cửa lên.
+• Tài chính: Có thêm nguồn thu nếu bạn chịu bước ra.
+• Tình cảm & sức khỏe: Sợ là bình thường; nhưng đừng để sợ quyết định thay bạn.
+• Lời nhắc: Cánh cửa không mở cho người đứng nhìn.`,
+
+`🔎 Giải quẻ 22 – Giá Trị Bản Thân
+• Tổng quan: Bạn nâng tiêu chuẩn—và đời buộc phải đối xử tốt hơn.
+• Công việc: Đặt ranh giới về thời gian/công sức; học cách nói “không”.
+• Tài chính: Đàm phán lương/giá; đừng bán rẻ chuyên môn.
+• Tình cảm & sức khỏe: Không còn yêu kiểu chịu đựng; yêu kiểu tôn trọng.
+• Lời nhắc: Bạn dạy người khác cách đối xử với bạn.`,
+
+`🔎 Giải quẻ 23 – Buông Bỏ Nhẹ Nhàng
+• Tổng quan: Buông thứ không thuộc về mình là mở chỗ cho điều mới.
+• Công việc: Dừng dự án không hiệu quả; tập trung thứ có tương lai.
+• Tài chính: Cắt chi tiêu “tưởng cần mà không cần”; nhẹ ví nhưng dày tiền.
+• Tình cảm & sức khỏe: Buông người không trân trọng; tim nhẹ là ngủ ngon.
+• Lời nhắc: Buông không phải thua—là thông minh.`,
+
+`🔎 Giải quẻ 24 – Thu Hoạch Xứng Đáng
+• Tổng quan: Trái ngọt tới, nhưng cần thêm chút thời gian chín.
+• Công việc: Kết quả được ghi nhận; có thể lên chức/được đề xuất dự án tốt.
+• Tài chính: Thưởng/bonus/đơn hàng tăng; nhớ giữ lại một phần.
+• Tình cảm & sức khỏe: Tận hưởng nhưng đừng “over”; giữ nhịp sống ổn.
+• Lời nhắc: Đừng bỏ cuộc ngay trước lúc hái quả.`,
+
+`🔎 Giải quẻ 25 – Nghỉ Ngơi Đúng Cách
+• Tổng quan: Nghỉ là một phần của tiến lên.
+• Công việc: Hợp “làm sâu rồi nghỉ”; tránh làm liên tục không điểm dừng.
+• Tài chính: Đừng chữa stress bằng mua sắm; nghỉ thông minh rẻ hơn.
+• Tình cảm & sức khỏe: Cơ thể báo mệt thì nghe; nạp pin trước khi cạn.
+• Lời nhắc: Nghỉ không phải lười—là chiến lược.`,
+
+`🔎 Giải quẻ 26 – Lộc Bất Ngờ
+• Tổng quan: Niềm vui nhỏ bất ngờ làm bạn cười lâu.
+• Công việc: Tin tốt đến qua email/điện thoại; kiểm tra thông báo thường xuyên.
+• Tài chính: Có khoản “trên trời rơi xuống” nhỏ: hoàn tiền, quà, thưởng.
+• Tình cảm & sức khỏe: Tâm trạng tốt kéo vận tốt; nhớ cảm ơn.
+• Lời nhắc: Lộc hay tới khi bạn đang sống tử tế.`,
+
+`🔎 Giải quẻ 27 – Troll Sương Sương
+• Tổng quan: Bạn hết ế… vì bạn hết quan tâm tới chuyện ế 😌
+• Công việc: Khi không cố chứng minh, bạn làm tốt hơn.
+• Tài chính: Đừng tiêu để “lấp khoảng trống”; tiêu vì giá trị.
+• Tình cảm & sức khỏe: Tình cảm tự tới khi bạn vui với chính mình.
+• Lời nhắc: Bạn càng tự do, càng hấp dẫn.`,
+
+`🔎 Giải quẻ 28 – Kiên Cường
+• Tổng quan: Bạn mạnh hơn bạn tưởng; thử thách chỉ để tăng bản lĩnh.
+• Công việc: Có việc khó; bạn là người “gánh team” nhưng cũng nhờ đó bật lên.
+• Tài chính: Kiên nhẫn giữ kế hoạch; đừng đổi hướng vì một tháng xấu.
+• Tình cảm & sức khỏe: Đừng cứng quá; kiên cường cũng cần mềm mại.
+• Lời nhắc: Bạn sinh ra để vượt qua, không phải để than hoài.`,
+
+`🔎 Giải quẻ 29 – Tái Sinh
+• Tổng quan: Một phiên bản mới đang hình thành—ít sợ, ít phụ thuộc hơn.
+• Công việc: Hợp đổi môi trường/đổi cách làm để “lột xác”.
+• Tài chính: Tối ưu chi tiêu, cắt rò rỉ; bạn giữ tiền tốt hơn hẳn.
+• Tình cảm & sức khỏe: Dứt khoát với mối quan hệ kéo tụt năng lượng.
+• Lời nhắc: Đổi thói quen là đổi vận.`,
+
+`🔎 Giải quẻ 30 – Ổn Định Tài Chính
+• Tổng quan: Bạn biết cân đối thu chi, đỡ áp lực.
+• Công việc: Thu nhập ổn định; hợp làm dài hạn và nâng kỹ năng.
+• Tài chính: Nên dùng 2 tài khoản: chi tiêu & tiết kiệm; tự động chuyển tiền.
+• Tình cảm & sức khỏe: Bớt căng vì tiền -> dễ thương hơn hẳn.
+• Lời nhắc: Ổn định là nền của tự do.`,
+
+`🔎 Giải quẻ 31 – Trời Quang Sau Mưa
+• Tổng quan: Chuyện khó chịu sẽ qua, nhẹ đầu dần.
+• Công việc: Những vướng mắc được tháo; bạn làm việc trôi hơn.
+• Tài chính: Dần ổn lại sau giai đoạn “rò rỉ”.
+• Tình cảm & sức khỏe: Tâm trạng sáng hơn; tránh ôm chuyện cũ.
+• Lời nhắc: Mưa tạnh rồi, đừng đứng dưới mưa nữa.`,
+
+`🔎 Giải quẻ 32 – Yêu Thương Đủ Đầy
+• Tổng quan: Bạn nhận tình cảm chân thành hơn mong đợi.
+• Công việc: Đồng đội/hợp tác dễ chịu; môi trường bớt toxic.
+• Tài chính: Có người hỗ trợ hoặc cơ hội đến từ sự giúp đỡ qua lại.
+• Tình cảm & sức khỏe: Tình cảm đẹp khi bạn nói thẳng điều mình cần.
+• Lời nhắc: Nhận yêu thương không làm bạn yếu—nó làm bạn đủ.`,
+
+`🔎 Giải quẻ 33 – Định Hướng Rõ Ràng
+• Tổng quan: Bạn “đã biết mình muốn gì”.
+• Công việc: Quyết đoán hơn; chọn dự án đúng hướng dài hạn.
+• Tài chính: Tiền phục vụ mục tiêu; bớt tiêu theo cảm xúc.
+• Tình cảm & sức khỏe: Không còn mập mờ; bạn chọn người cùng đường.
+• Lời nhắc: Rõ hướng là bớt khổ.`,
+
+`🔎 Giải quẻ 34 – Sức Mạnh Nội Tâm
+• Tổng quan: Bạn học cách tự đứng vững, không lệ thuộc lời khen/chê.
+• Công việc: Làm việc chắc tay; ít bị lung lay bởi drama.
+• Tài chính: Kiên trì kế hoạch; đừng “đánh cược” chỉ vì người khác nói.
+• Tình cảm & sức khỏe: Bớt kỳ vọng sai; lòng nhẹ, ngủ ngon.
+• Lời nhắc: Nội lực mạnh thì ngoại cảnh không dắt bạn đi.`,
+
+`🔎 Giải quẻ 35 – Thuận Dòng
+• Tổng quan: Mọi việc trôi tự nhiên khi bạn thôi cưỡng.
+• Công việc: Gặp thời điểm tốt; cứ làm đúng nhịp sẽ ra kết quả.
+• Tài chính: Thu nhập đều; tránh “tham thêm” gây rối.
+• Tình cảm & sức khỏe: Tâm yên thì cơ thể êm.
+• Lời nhắc: Đừng bơi ngược khi dòng đang đưa bạn tới đúng chỗ.`,
+
+`🔎 Giải quẻ 36 – Chìa Khóa Thành Công
+• Tổng quan: Kỷ luật mở cửa lớn.
+• Công việc: Hợp xây routine: giờ làm sâu, giờ học, giờ nghỉ.
+• Tài chính: Kỷ luật chi tiêu/đầu tư giúp bạn tăng tốc rõ.
+• Tình cảm & sức khỏe: Kỷ luật không phải khắt khe—là yêu mình đủ.
+• Lời nhắc: Bạn không thiếu tài năng, bạn thiếu lịch.`,
+
+`🔎 Giải quẻ 37 – Chữa Lành
+• Tổng quan: Bạn tha thứ cho quá khứ và ngừng tự phạt mình.
+• Công việc: Làm tốt hơn khi không còn sợ sai.
+• Tài chính: Chi cho trị liệu/du lịch/hoạt động chữa lành là hợp lý, nhưng có giới hạn.
+• Tình cảm & sức khỏe: Buông gánh nặng cảm xúc giúp sức khỏe lên.
+• Lời nhắc: Chữa lành không xóa quá khứ—nó đổi cách bạn sống với nó.`,
+
+`🔎 Giải quẻ 38 – Bứt Phá
+• Tổng quan: Một bước táo bạo đem lại kết quả lớn.
+• Công việc: Dám nhận thử thách/đổi vai trò; đây là “cú nhảy”.
+• Tài chính: Có thể tăng thu mạnh; nhưng nhớ quản trị rủi ro.
+• Tình cảm & sức khỏe: Bận rộn hơn; giữ sức để bứt phá bền.
+• Lời nhắc: Can đảm đúng lúc = vận mở.`,
+
+`🔎 Giải quẻ 39 – Sáng Tạo
+• Tổng quan: Tài năng tiềm ẩn được đánh thức.
+• Công việc: Hợp làm nội dung/thiết kế/ý tưởng/giải pháp; bạn “bật mode sáng”.
+• Tài chính: Kiếm thêm từ sản phẩm sáng tạo/dịch vụ cá nhân.
+• Tình cảm & sức khỏe: Sáng tạo cần năng lượng; ngủ và ăn đều.
+• Lời nhắc: Đừng đợi cảm hứng—hãy tạo điều kiện cho nó.`,
+
+`🔎 Giải quẻ 40 – Viết Lại Câu Chuyện
+• Tổng quan: Bạn có quyền đổi hướng.
+• Công việc: Dám rẽ sang con đường phù hợp hơn, kể cả bắt đầu lại một phần.
+• Tài chính: Đầu tư cho chuyển hướng (học, công cụ) là đáng—nhưng có kế hoạch.
+• Tình cảm & sức khỏe: Bạn bỏ vai “người chịu đựng”; sống đúng mình hơn.
+• Lời nhắc: Đời bạn, kịch bản bạn viết.`,
+
+`🔎 Giải quẻ 41 – Ánh Sáng
+• Tổng quan: Niềm tin giúp bạn vượt nghi ngờ.
+• Công việc: Có lúc bị hoài nghi, nhưng làm tới cùng sẽ có người công nhận.
+• Tài chính: Đừng tự hạn chế vì sợ thiếu; cứ làm tốt thì tiền sẽ theo.
+• Tình cảm & sức khỏe: Tránh tự nói xấu bản thân.
+• Lời nhắc: Tin mình là bật đèn cho cả năm.`,
+
+`🔎 Giải quẻ 42 – Troll Nhẹ Nhàng
+• Tổng quan: Tiền tới rồi đi… nhưng ít nhất nó không block bạn 😆
+• Công việc: Thu nhập có nhưng chi cũng nhiều; quản lý dòng tiền là chìa khóa.
+• Tài chính: Dùng ngân sách theo tuần + giới hạn mua sắm bốc đồng.
+• Tình cảm & sức khỏe: Đừng cáu vì “hết tiền”; cáu xong vẫn hết 😌
+• Lời nhắc: Tiền thích người bình tĩnh.`,
+
+`🔎 Giải quẻ 43 – Nở Hoa
+• Tổng quan: Công sức âm thầm được ghi nhận.
+• Công việc: Bạn có thể được khen thưởng/đề bạt; hoặc ít nhất là được tin giao việc lớn.
+• Tài chính: Thu nhập tăng vì giá trị tăng.
+• Tình cảm & sức khỏe: Đừng ngại nhận lời khen; đó là “lộc”.
+• Lời nhắc: Đến mùa, hoa tự nở.`,
+
+`🔎 Giải quẻ 44 – Nuôi Dưỡng
+• Tổng quan: Ước mơ như cây nhỏ—chăm đều mới lớn.
+• Công việc: Làm từng bước: chuẩn hóa, tích lũy, nâng chất.
+• Tài chính: Tốt cho kế hoạch dài hạn; tránh “đốt giai đoạn”.
+• Tình cảm & sức khỏe: Nuôi dưỡng bản thân trước khi nuôi người khác.
+• Lời nhắc: Không cần nhanh, cần đều.`,
+
+`🔎 Giải quẻ 45 – Hành Trình
+• Tổng quan: Đừng so mình với người khác; mỗi người có timeline riêng.
+• Công việc: Tập trung đường dài; bạn thắng nhờ bền.
+• Tài chính: So sánh dễ làm bạn tiêu bừa/đầu tư sai; giữ nguyên tắc.
+• Tình cảm & sức khỏe: Bớt mạng xã hội một chút sẽ nhẹ đầu.
+• Lời nhắc: Bạn không chậm—bạn đang đi đúng nhịp.`,
+
+`🔎 Giải quẻ 46 – Bao Dung
+• Tổng quan: Tha thứ giúp bạn tự do.
+• Công việc: Bớt tranh đúng sai; tập trung giải pháp, bạn được nể hơn.
+• Tài chính: Bao dung không đồng nghĩa cho vay vô hạn 😌 Rõ ràng tiền bạc.
+• Tình cảm & sức khỏe: Nói điều cần nói, rồi buông điều không cần giữ.
+• Lời nhắc: Tha thứ là thả neo khỏi quá khứ.`,
+
+`🔎 Giải quẻ 47 – Tầm Nhìn Lớn
+• Tổng quan: Nghĩ xa hơn, đi xa hơn.
+• Công việc: Hợp làm chiến lược/kế hoạch; bạn nhìn được “bức tranh lớn”.
+• Tài chính: Đầu tư dài hạn hợp hơn lướt sóng.
+• Tình cảm & sức khỏe: Đừng yêu/đừng sống kiểu ngắn hạn rồi đau dài hạn.
+• Lời nhắc: Tầm nhìn là la bàn của vận.`,
+
+`🔎 Giải quẻ 48 – Thành Tựu
+• Tổng quan: Một mục tiêu lớn hoàn thành.
+• Công việc: Khả năng “đóng dự án” rất cao; bạn gặt thành tích rõ rệt.
+• Tài chính: Thành tựu thường đi kèm tiền; nhưng đừng phung phí vì hưng phấn.
+• Tình cảm & sức khỏe: Ăn mừng vừa đủ; giữ sức cho chặng tiếp.
+• Lời nhắc: Bạn làm được—đừng quên tự công nhận mình.`,
+
+`🔎 Giải quẻ 49 – Cơ Hội
+• Tổng quan: Một lời đề nghị mới đáng cân nhắc.
+• Công việc: Đọc kỹ điều khoản; hỏi rõ KPI, quyền lợi, trách nhiệm.
+• Tài chính: Có thể tăng thu; nhưng cũng có chi phí cơ hội—cân bằng.
+• Tình cảm & sức khỏe: Đừng nhận vì sĩ diện; nhận vì phù hợp.
+• Lời nhắc: Cơ hội tốt là cơ hội rõ.`,
+
+`🔎 Giải quẻ 50 – Gieo Hạt
+• Tổng quan: Việc hôm nay làm sẽ nở hoa mai sau.
+• Công việc: Xây hệ thống, quy trình, thương hiệu cá nhân—đây là “hạt”.
+• Tài chính: Tiết kiệm/đầu tư đều đặn; lợi nhuận đến từ thời gian.
+• Tình cảm & sức khỏe: Gieo thói quen tốt; thu sức khỏe tốt.
+• Lời nhắc: Hạt nhỏ nhưng mùa lớn.`,
+
+`🔎 Giải quẻ 51 – Cân Bằng
+• Tổng quan: Giữ cân bằng là giữ được tất cả.
+• Công việc: Đừng cực đoan: không “cày 24/7” cũng không “thả trôi”.
+• Tài chính: Chi tiêu cân bằng: vui sống nhưng có quỹ an toàn.
+• Tình cảm & sức khỏe: Cân bằng cảm xúc; bớt nóng bớt mệt.
+• Lời nhắc: Bền là nhờ cân.`,
+
+`🔎 Giải quẻ 52 – Nhẹ Nhàng
+• Tổng quan: Không cần ồn ào vẫn có giá trị.
+• Công việc: Bạn hợp “làm chắc”; ít nói nhiều làm.
+• Tài chính: Tiền đến từ sự ổn định; tránh khoe/đốt tiền vì sĩ diện.
+• Tình cảm & sức khỏe: Người hợp bạn là người khiến bạn yên, không khiến bạn gồng.
+• Lời nhắc: Nhẹ nhàng nhưng không yếu.`,
+
+`🔎 Giải quẻ 53 – Đúng Thời Điểm
+• Tổng quan: Mọi thứ đến khi bạn sẵn sàng.
+• Công việc: Đừng nóng; chuẩn bị kỹ thì thời điểm đẹp tự xuất hiện.
+• Tài chính: Tránh mua/đầu tư lúc nôn; chờ “đúng nhịp”.
+• Tình cảm & sức khỏe: Tình cảm cũng vậy—đúng người đúng lúc.
+• Lời nhắc: Chuẩn bị là cách gọi may mắn.`,
+
+`🔎 Giải quẻ 54 – Vươn Lên
+• Tổng quan: Bạn không còn sợ thất bại.
+• Công việc: Dám thử, dám sai, dám sửa—đó là công thức thăng tiến.
+• Tài chính: Có thể tăng thu nếu bạn dám nhận thêm trách nhiệm.
+• Tình cảm & sức khỏe: Tự tin hơn kéo khí sắc lên.
+• Lời nhắc: Sợ ít đi, đường nhiều lên.`,
+
+`🔎 Giải quẻ 55 – Troll Dễ Thương
+• Tổng quan: Giảm cân thành công… giảm tiền trong ví trước 🤣
+• Công việc: Nhiều khoản chi vì công việc/đời sống; nhưng bạn học cách xoay xở.
+• Tài chính: Cẩn thận “rớt ví” kiểu phát sinh; lập quỹ phát sinh 10%.
+• Tình cảm & sức khỏe: Đừng stress; vui vẻ là lời.
+• Lời nhắc: Tiền ít nhưng bài học nhiều—cũng là lời.`,
+
+`🔎 Giải quẻ 56 – Dịu Dàng
+• Tổng quan: Mềm mỏng giúp bạn thắng.
+• Công việc: Giao tiếp khéo, đàm phán tốt; bạn giải quyết được việc khó bằng thái độ.
+• Tài chính: Lợi trong thương lượng; có thể chốt deal tốt.
+• Tình cảm & sức khỏe: Dịu dàng với người khác và với chính mình.
+• Lời nhắc: Nước mềm mà xuyên đá.`,
+
+`🔎 Giải quẻ 57 – Thấu Hiểu
+• Tổng quan: Bạn hiểu mình hơn: mình muốn gì, chịu được gì, cần gì.
+• Công việc: Chọn việc hợp tính; bớt “đi ngược bản chất”.
+• Tài chính: Biết điểm yếu tiêu tiền; bạn kiểm soát tốt hơn.
+• Tình cảm & sức khỏe: Tự hiểu mình thì ít trách người.
+• Lời nhắc: Hiểu mình là thắng lớn.`,
+
+`🔎 Giải quẻ 58 – Niềm Vui Nhỏ
+• Tổng quan: Hạnh phúc đến từ điều giản dị.
+• Công việc: Đừng coi thường việc nhỏ; nó làm tinh thần bạn tốt lên.
+• Tài chính: Niềm vui rẻ mà chất: một bữa ngon, một chuyến đi gần.
+• Tình cảm & sức khỏe: Chăm những thứ nhỏ: ngủ, nước, ánh nắng.
+• Lời nhắc: Vui nhỏ nhưng đều = vui lớn.`,
+
+`🔎 Giải quẻ 59 – Tập Trung
+• Tổng quan: Bớt phân tâm, tăng hiệu quả.
+• Công việc: Tắt thông báo khi làm sâu; mỗi ngày 1 khung “deep work”.
+• Tài chính: Tập trung mục tiêu tiền; tránh đầu tư/chi tiêu theo trend.
+• Tình cảm & sức khỏe: Tập trung vào người thật, việc thật.
+• Lời nhắc: Tập trung là siêu năng lực.`,
+
+`🔎 Giải quẻ 60 – Linh Hoạt
+• Tổng quan: Biết thích nghi là lợi thế.
+• Công việc: Kế hoạch có thể đổi; bạn càng linh hoạt càng ít đau đầu.
+• Tài chính: Có thể thay đổi cách kiếm tiền; đa nguồn thu là tốt.
+• Tình cảm & sức khỏe: Linh hoạt nhưng giữ nguyên nguyên tắc cốt lõi.
+• Lời nhắc: Cây cứng dễ gãy, cây dẻo thì sống.`,
+
+`🔎 Giải quẻ 61 – Ổn Định
+• Tổng quan: Bạn xây được nền tảng vững.
+• Công việc: Hợp ổn định vị trí, nâng cấp năng lực; xây uy tín dài hạn.
+• Tài chính: Tích lũy tốt; ưu tiên an toàn trước mạo hiểm.
+• Tình cảm & sức khỏe: Nếp sống đều làm bạn “đẹp lên” rõ.
+• Lời nhắc: Nền vững thì nhà cao.`,
+
+`🔎 Giải quẻ 62 – Tình Yêu Chân Thành
+• Tổng quan: Người ở lại là người đáng giữ.
+• Công việc: Bận nhưng không cô đơn; có người đồng hành tinh thần.
+• Tài chính: Chi tiêu cho tình yêu hợp lý; rõ ràng để tránh hiểu lầm.
+• Tình cảm & sức khỏe: Chân thành + thẳng thắn = bền.
+• Lời nhắc: Giữ người tốt bằng sự tử tế, không phải bằng kiểm soát.`,
+
+`🔎 Giải quẻ 63 – Tỏa Sáng Âm Thầm
+• Tổng quan: Bạn không cần chứng minh nhiều; kết quả tự nói.
+• Công việc: Làm chắc, làm kỹ; bạn được tin vào việc quan trọng.
+• Tài chính: Thu tăng nhờ năng lực; bớt khoe thì giữ được tiền.
+• Tình cảm & sức khỏe: Bình yên là đẹp nhất.
+• Lời nhắc: Đỉnh cao đôi khi rất yên.`,
+
+`🔎 Giải quẻ 64 – Phát Triển
+• Tổng quan: Bước nhỏ tạo thay đổi lớn.
+• Công việc: Mỗi tháng đặt 1 mục tiêu phát triển; cuối năm bạn khác hẳn.
+• Tài chính: Tăng thu/tăng kỹ năng; ưu tiên tích lũy.
+• Tình cảm & sức khỏe: Trưởng thành khiến bạn bớt dính vào chuyện không đáng.
+• Lời nhắc: Nhỏ nhưng liên tục là mạnh.`,
+
+`🔎 Giải quẻ 65 – Bình Yên
+• Tổng quan: Sự yên ổn là phần thưởng.
+• Công việc: Đừng tự tạo drama; chọn môi trường và cách làm “êm”.
+• Tài chính: Bình yên tài chính đến từ dự phòng và kỷ luật.
+• Tình cảm & sức khỏe: Biết đủ là giàu.
+• Lời nhắc: Bình yên không tự đến—bạn phải chọn nó.`,
+
+`🔎 Giải quẻ 66 – Tài Lộc Tăng Dần
+• Tổng quan: Thu nhập cải thiện rõ.
+• Công việc: Có cơ hội tăng lương/đổi job tốt hơn/nhận thêm dự án.
+• Tài chính: Năm hợp tích sản; ưu tiên quỹ dự phòng + đầu tư dài hạn.
+• Tình cảm & sức khỏe: Có tiền hơn nhưng đừng “cày kiệt”; giữ sức.
+• Lời nhắc: Tăng thu mà không tăng tiêu mới là đỉnh.`,
+
+`🔎 Giải quẻ 67 – Hoàn Thành
+• Tổng quan: Bạn đạt điều từng nghĩ xa vời.
+• Công việc: Dự án/thi cử/chứng chỉ/goal lớn có khả năng “về đích”.
+• Tài chính: Về đích thường đi kèm phần thưởng; nhớ chốt lời và giữ lại.
+• Tình cảm & sức khỏe: Ăn mừng có kế hoạch; đừng đốt sức.
+• Lời nhắc: Bạn tới đây không phải tình cờ.`,
+
+`🔎 Giải quẻ 68 – Nhẹ Nhàng Đón Nhận
+• Tổng quan: Chỉ cần sống tốt là đủ; vận tốt tự ghé.
+• Công việc: Làm đúng phần mình, không tranh công; người khác sẽ thấy.
+• Tài chính: Tiền đến đều; tránh phức tạp hóa.
+• Tình cảm & sức khỏe: Đón nhận yêu thương, lời khen, cơ hội—đừng tự chối.
+• Lời nhắc: Nhẹ nhàng không nghĩa là buông xuôi.`,
+
+`🔎 Giải quẻ 69 – Troll Kết Sổ
 • Tổng quan: Nếu quẻ nào không trúng… thì trúng chắc 1 điều: bạn còn cơ hội làm lại 😌
 • Công việc: Năm nay có lúc lỡ nhịp; nhưng bạn quay lại đường đúng rất nhanh.
 • Tài chính: Có lúc hụt; nhưng bạn rút kinh nghiệm, càng về sau càng ổn.
