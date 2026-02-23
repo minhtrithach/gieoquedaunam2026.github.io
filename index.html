@@ -3,7 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lì Xì Tết - Toàn Lời Chúc + Meme Troll</title>
+<title>Gieo Quẻ Đầu Năm - Siêu Troll</title>
+
+<!-- Nhạc nền SoundCloud (ẩn) -->
+<iframe width="0" height="0"
+  scrolling="no" frameborder="no"
+  allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/t-tu-n-804367758/nhac-xo-so-kien-thiet-mien-bac-ban-kinh-dien&auto_play=true">
+</iframe>
 
 <style>
 :root{
@@ -50,25 +57,142 @@ body::before{
   padding:28px;
   text-align:center;
   box-shadow:0 0 40px #facc1544;
+  position:relative;
 }
 
 h1{
   color:var(--gold);
-  margin-bottom:10px;
+  margin:0 0 10px;
 }
 
 .range{
   font-size:14px;
   opacity:.8;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
+/* Bao lì xì */
+.envelope-wrapper{
+  position:relative;
+  width:140px;
+  height:180px;
+  margin:0 auto 16px;
+  perspective:1000px;
+}
+
+.envelope{
+  width:100%;
+  height:100%;
+  background:linear-gradient(145deg,#b91c1c,#dc2626);
+  border:3px solid var(--gold);
+  border-radius:12px;
+  position:relative;
+  cursor:pointer;
+  transition:transform .25s ease;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  user-select:none;
+}
+
+/* Chữ trên bao */
+.envelope .seal{
+  font-size:36px;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
+}
+
+.envelope:hover{
+  transform:scale(1.05);
+}
+
+/* Nắp bao */
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:55%;
+  background:#991b1b;
+  border-bottom:2px solid var(--gold);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:transform .65s ease;
+  z-index:3;
+}
+
+/* Tờ "quẻ" bên trong */
+.paper{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%) translateY(70px);
+  width:78%;
+  height:78%;
+  border-radius:12px;
+  background:linear-gradient(180deg, #fff7ed, #fde68a);
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  z-index:1;
+  opacity:0;
+  transition:transform .65s ease, opacity .45s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#7f1d1d;
+  font-weight:900;
+  letter-spacing:.5px;
+  font-size:18px;
+}
+
+/* Confetti đơn giản */
+.confetti{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:0;
+  z-index:4;
+}
+
+@keyframes confettiPop{
+  0%{ transform:scale(.7); opacity:0; }
+  20%{ opacity:1; }
+  100%{ transform:scale(1.2); opacity:0; }
+}
+
+.confetti.show{
+  animation:confettiPop .9s ease forwards;
+}
+
+/* Rung nhẹ */
+@keyframes shake{
+  0%{transform:rotate(0deg);}
+  25%{transform:rotate(2deg);}
+  50%{transform:rotate(-2deg);}
+  75%{transform:rotate(1deg);}
+  100%{transform:rotate(0deg);}
+}
+.envelope.shake{
+  animation:shake .38s ease;
+}
+
+/* Khi mở */
+.envelope.open .flap{
+  transform:rotateX(180deg);
+}
+.envelope.open + .paper{
+  transform:translateX(-50%) translateY(-8px);
+  opacity:1;
+}
+
+/* Quẻ (hiển thị kiểu gõ chữ) */
 .wish{
   font-size:20px;
-  margin:20px 0;
-  min-height:60px;
+  margin:16px 0 10px;
+  min-height:80px;
+  line-height:1.35;
 }
 
+/* Nút */
 button{
   background:linear-gradient(45deg,#fde047,#facc15);
   border:none;
@@ -80,7 +204,6 @@ button{
   color:#7f1d1d;
   transition:.2s;
 }
-
 button:hover{
   transform:scale(1.05);
   box-shadow:0 0 20px #fde047;
@@ -88,13 +211,12 @@ button:hover{
 
 /* Ảnh troll */
 .troll-img{
-  margin-top:15px;
-  min-height:200px;
+  margin-top:12px;
+  min-height:220px;
   display:flex;
-  justify-content:center;   /* căn giữa ngang */
-  align-items:center;       /* căn giữa dọc */
+  justify-content:center;
+  align-items:center;
 }
-
 .troll-img img{
   max-width:100%;
   max-height:240px;
@@ -103,113 +225,227 @@ button:hover{
   display:none;
   animation: pop .3s ease;
 }
-
 @keyframes pop{
   from{ transform:scale(.7); opacity:0; }
   to{ transform:scale(1); opacity:1; }
 }
 
+/* Gợi ý nhỏ */
+.hint{
+  font-size:13px;
+  opacity:.75;
+  margin-top:6px;
+}
+
+/* Con trỏ nhấp nháy cho hiệu ứng gõ */
+.cursor{
+  display:inline-block;
+  width:10px;
+  margin-left:2px;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink{
+  50%{ opacity:0; }
+}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <h1>🧧 Lì Xì May Mắn</h1>
-  <div class="range">Mệnh giá: lên đến 500.000đ (xui thì không)</div>
+  <h1>🔮 Gieo Quẻ Đầu Năm</h1>
+  <div class="range">Tỉ lệ linh nghiệm: tuỳ tâm trạng vũ trụ (và wifi)</div>
+
+  <!-- Bao "gieo quẻ" (click cũng mở được) -->
+  <div class="envelope-wrapper">
+    <div class="envelope" id="envelope" onclick="openEnvelope()">
+      <div class="flap"></div>
+      <div class="seal">Gieo</div>
+      <div class="confetti" id="confetti">✨🎊✨🎉✨🎊✨</div>
+    </div>
+    <div class="paper" id="paper">QUẺ</div>
+  </div>
+  <div class="hint">Bấm nút hoặc bấm vào “bao” để gieo quẻ 🔮</div>
 
   <div class="wish" id="wishText">
-    Bấm nút để nhận lộc đầu năm!
+    Bấm để gieo quẻ đầu năm!
   </div>
 
   <div class="troll-img">
     <img id="trollImage" src="" alt="meme troll">
   </div>
 
-  <button onclick="receiveWish()">Nhận lì xì 🎉</button>
+  <button onclick="openEnvelope()">Gieo quẻ 🔮</button>
 </div>
 
 <script>
-
 const wishes = [
-  "🌟 Chúc bạn năm mới giàu lên, còn không thì già đi cũng được 😌",
-  "💰 Chúc tiền vào như nước… còn ra thì nhỏ giọt thôi nha 🥲",
-  "🚀 Chúc thăng tiến nhanh như deadline dí sát mông 💀",
-  "❤️ Chúc yêu đúng người, đừng yêu nhầm người yêu cũ 🤡",
-  "🎯 Chúc đặt mục tiêu vừa thôi, đừng mơ quá rồi lại buồn 😏",
-  "🔥 Chúc đỏ cả năm, đừng đỏ mỗi cái ví 😭",
-  "🏆 Chúc thành công rực rỡ… đừng rực rỡ mỗi cái mụn 🤣",
-  "🎉 Chúc vui vẻ cả năm, trừ lúc coi số dư tài khoản 😌",
-  "✨ Chúc mọi chuyện suôn sẻ, trừ việc giảm cân 😆",
-  "💸 Chúc giàu nhanh… còn nhanh cỡ nào thì tuỳ ông Trời 🫠"
+  "🔮 Quẻ Thứ Nhất: Năm nay tiền vào cửa trước, ra cửa sau… nhưng cửa sau mở to hơn 😌",
+  "🐉 Quẻ Rồng Lộn: Sự nghiệp bay cao… nhưng nhớ coi chừng đụng trần 😏",
+  "💘 Quẻ Tình Duyên: Có người để ý bạn… nhưng họ đang để ý 3 người khác nữa 🤡",
+  "💸 Quẻ Tài Lộc: Có lộc nhỏ nhỏ… đủ mua trà sữa size M không topping 🥲",
+  "🔥 Quẻ Vận Đỏ: Đỏ cả năm… nhất là đỏ thông báo “trừ tiền thành công” 💀",
+  "🧠 Quẻ Trí Tuệ: Bạn sẽ thông minh hơn… sau khi ngu thêm vài lần 🤣",
+  "🏃 Quẻ Nỗ Lực: Cố gắng sẽ thành công… còn không cố thì thành người từng cố 😌",
+  "🎯 Quẻ Mục Tiêu: Đặt mục tiêu cao một chút… để khi không đạt còn có lý do 😏",
+  "🪞 Quẻ Sự Thật: Người bạn cần thay đổi nhất… đang nhìn bạn trong gương 🫠",
+  "🎲 Quẻ Hên Xui: 50% may mắn, 50% do bạn… mà bạn thì hên xui lắm 😆",
+  "💍 Quẻ Cưới Hỏi: Có cưới… nhưng cưới ai thì trời chưa cập nhật 🤭",
+  "📉 Quẻ Tài Chính: Ví mỏng đi để bạn nhẹ lòng hơn 😌",
+  "🌪 Quẻ Drama: Không tìm drama… drama tự tìm bạn 😭",
+  "🚀 Quẻ Bứt Phá: Bứt thì có bứt… phá thì chắc chắn phá 🤡",
+  "🍀 Quẻ An Ủi: Không giàu cũng không sao… miễn là còn sống 😌"
 ];
 
 const trollImages = [
-  // Troll face
   "https://i.imgflip.com/30b1gx.jpg",
-
-  // One does not simply
   "https://i.imgflip.com/1bij.jpg",
-
-  // Success kid
   "https://i.imgflip.com/4t0m5.jpg",
-
-  // Grumpy cat
   "https://i.imgflip.com/26am.jpg",
-
-  // Surprised pikachu
   "https://i.imgflip.com/2/1ur9b0.jpg",
-
-  // Drake hotline bling
   "https://i.imgflip.com/30zz5g.jpg",
-
-  // Distracted boyfriend
-  "https://i.imgflip.com/1ur9b0.jpg",
-
-  // Crying Jordan
   "https://i.imgflip.com/1g8my4.jpg",
-
-  // Hide the pain Harold
   "https://i.imgflip.com/2fm6x.jpg",
-
-  // Change my mind
   "https://i.imgflip.com/24y43o.jpg",
-
-  // Monkey puppet side eye
   "https://i.imgflip.com/2gnnjh.jpg",
-
-  // This is fine
   "https://i.imgflip.com/3si4.jpg",
-
-  // Expanding brain
   "https://i.imgflip.com/1jwhww.jpg",
-
-  // Sad Pablo Escobar
   "https://i.imgflip.com/3oevdk.jpg",
-
-  // Woman yelling at cat
   "https://i.imgflip.com/345v97.jpg",
-
-  // Gigachad
   "https://i.imgflip.com/4acd7j.png",
-
-  // Clown applying makeup
   "https://i.imgflip.com/2hgfw.jpg"
 ];
 
-function receiveWish(){
-  // random lời chúc
-  const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
-  document.getElementById("wishText").innerHTML = randomWish;
+let typingTimer = null;
 
-  // random ảnh troll
-  const randomImage = trollImages[Math.floor(Math.random() * trollImages.length)];
+// Key lưu “đã gieo” (đổi tên key nếu muốn reset theo năm)
+const STORAGE_KEY = "fortune_once_v1";
+
+/** Lấy quẻ đã lưu (nếu có) */
+function getSavedFortune(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return null;
+    const data = JSON.parse(raw);
+    if(typeof data?.index !== "number") return null;
+    return data;
+  }catch(e){
+    return null;
+  }
+}
+
+/** Lưu quẻ */
+function saveFortune(index){
+  const data = {
+    index,
+    savedAt: new Date().toISOString()
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+/** Hiển thị quẻ với hiệu ứng gõ chữ */
+function typeText(fullText, onDone){
+  const textEl = document.getElementById("wishText");
+  textEl.innerHTML = `<span id="typed"></span><span class="cursor">|</span>`;
+  const typedEl = document.getElementById("typed");
+
+  let i = 0;
+  if (typingTimer) clearInterval(typingTimer);
+
+  typingTimer = setInterval(()=>{
+    typedEl.textContent = fullText.slice(0, i + 1);
+    i++;
+    if(i >= fullText.length){
+      clearInterval(typingTimer);
+      typingTimer = null;
+      if(onDone) onDone();
+    }
+  }, 25);
+}
+
+/** Hiển thị meme theo index (cố định) */
+function showImageByIndex(index){
   const img = document.getElementById("trollImage");
-  img.src = randomImage;
+  const imageIndex = index % trollImages.length;
+  img.src = trollImages[imageIndex];
   img.style.display = "block";
 }
 
-</script>
+/** Mở bao + show quẻ */
+function animateOpenThenShow(index){
+  const envelope = document.getElementById("envelope");
+  const paper = document.getElementById("paper");
+  const confetti = document.getElementById("confetti");
 
+  // reset animation (nhưng KHÔNG reset quẻ)
+  envelope.classList.remove("open");
+  paper.style.opacity = 0;
+  confetti.classList.remove("show");
+
+  // rung
+  envelope.classList.add("shake");
+
+  setTimeout(()=>{
+    envelope.classList.remove("shake");
+    envelope.classList.add("open");
+    confetti.classList.add("show");
+
+    setTimeout(()=>{
+      paper.style.opacity = 1;
+      paper.textContent = "QUẺ";
+
+      const fullText = wishes[index];
+      typeText(fullText, ()=> showImageByIndex(index));
+    }, 380);
+
+  }, 380);
+}
+
+/** Bấm gieo: chỉ cho 1 lần */
+function openEnvelope(){
+  const saved = getSavedFortune();
+
+  if(saved){
+    // 🚫 Đã gieo rồi -> KHÔNG cho gieo nữa
+    const textEl = document.getElementById("wishText");
+    textEl.innerHTML = "🛑 Bạn đã gieo quẻ rồi nha! Đừng tham, coi chừng ứng nghiệm 😌";
+    // vẫn cho xem lại quẻ cũ bằng cách mở lại animation (tuỳ bạn)
+    // Nếu bạn muốn “cấm tuyệt đối” (không mở lại luôn) thì COMMENT dòng dưới.
+    animateOpenThenShow(saved.index);
+    return;
+  }
+
+  // ✅ Lần đầu: random, lưu lại, rồi mở
+  const index = Math.floor(Math.random() * wishes.length);
+  saveFortune(index);
+  animateOpenThenShow(index);
+
+  // Khoá nút luôn cho đúng “không cho gieo nữa”
+  const btn = document.querySelector("button");
+  if(btn){
+    btn.disabled = true;
+    btn.textContent = "Đã gieo quẻ ✅";
+    btn.style.opacity = .85;
+    btn.style.cursor = "not-allowed";
+  }
+}
+
+// Nếu bạn muốn: load trang lên là tự hiện trạng thái “đã gieo” (không cần bấm)
+// thì bỏ comment đoạn dưới:
+window.addEventListener("load", ()=>{
+  const saved = getSavedFortune();
+  if(saved){
+    const btn = document.querySelector("button");
+    if(btn){
+      btn.disabled = true;
+      btn.textContent = "Đã gieo quẻ ✅";
+      btn.style.opacity = .85;
+      btn.style.cursor = "not-allowed";
+    }
+    // Có thể auto show lại quẻ cũ:
+    // animateOpenThenShow(saved.index);
+  }
+});
+</script>
 </body>
 </html>
